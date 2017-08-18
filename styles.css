@@ -1,0 +1,269 @@
+body {
+    font-family: 'Lato', 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.pimg1, .pimg2, .pimg3, .pimg4 {
+    position: relative;
+    opacity: 0.8;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* For Parallex */
+    /*background-attachment: fixed;*/ /* For normal */
+}
+
+.pimg1 {
+    background-image: url(image1.jpeg);
+    min-height: 100vh;
+}
+
+.pimg2 {
+    background-image: url(image2.jpeg);
+    min-height: 400px;
+}
+
+.pimg3 {
+    background-image: url(image3.jpeg);
+    min-height: 400px;
+}
+
+.pimg4 {
+    background-image: url(image4.jpeg);
+    min-height: 400px;
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+}
+
+    blockquote .small, blockquote footer, blockquote small {
+        display: block;
+        font-size: 80%;
+        line-height: 1.42857143;
+        color: #777;
+    }
+
+.section {
+    text-align: left;
+    padding: 20px 40px;
+}
+
+    .section.section-light {
+        background-color: #f4f4f4;
+        color: #795548;
+    }
+
+        .section.section-light blockquote {
+            border-left: 5px solid #282e34;
+        }
+
+    .section.section-dark {
+        background-color: #282e34;
+        color: #ddd;
+    }
+
+        .section.section-dark blockquote {
+            border-left: 5px solid #f4f4f4;
+        }
+
+.ptext, .ptext2, .ptext3 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+}
+
+    .ptext .border,
+    .ptext2 .border,
+    .ptext3 .border {
+        background-color: #FFEB3B;
+        padding: 5px 10px;
+        color: #795548;
+        border-radius: 5px;
+    }
+
+    .ptext3 .border,
+    .ptext .border {
+        background-color: #E91E63;
+        color: #ffffff;
+    }
+
+    .ptext2 .border {
+        background-color: transparent;
+        color: #fff;
+    }
+
+.footer {
+    position: relative;
+    background-color: #333333;
+    color: #fff;
+}
+
+.footertext {
+    width: 100%;
+    text-align: center;
+    text-transform: fullsize-kana;
+    letter-spacing: 4px;
+}
+
+    .footertext .border {
+        color: #fff;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+@media(max-width: 568px) {
+
+    .pimg1, .pimg2, .pimg3, .pimg4 {
+        position: relative;
+        opacity: 0.9;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /*background-attachment: fixed;*/ /* For Parallex */
+        background-attachment: fixed; /* For normal */
+    }
+
+    .ptext, .ptext2, .ptext3 {
+        font-size: 25px;
+        letter-spacing: 8px;
+    }
+
+        .ptext .border,
+        .ptext2 .border,
+        .ptext3 .border {
+            padding: 5px;
+        }
+
+    .footertext {
+        letter-spacing: 4px;
+        font-size: 40%;
+    }
+}
+
+/*** Side bar content ***/
+
+
+.navbar {
+    background-color: #333333;
+    margin: 0;
+    height: 50px;
+    overflow: hidden;
+}
+
+    .navbar ul {
+        margin: 0;
+        list-style: none;
+    }
+
+        .navbar a,
+        .navbar ul li a {
+            color: #9E9E9E;
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+    .navbar a {
+        padding: 2px 16px;
+        color: #fff;
+    }
+
+    .navbar ul li a.selected,
+    .navbar ul a:hover {
+        color: #fff;
+    }
+
+.side-nav {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.9s;
+    opacity: 0.9;
+    z-index: 1;
+    background-color: #111;
+    overflow-x: hidden;
+}
+
+    .side-nav a {
+        display: block;
+        font-size: 24px;
+        padding: 10px 10px 10px 30px;
+        text-decoration: none;
+        font-weight: 400;
+        color: #9E9E9E;
+    }
+
+        .side-nav a#closeNav {
+            float: right;
+        }
+
+        .side-nav a.selected,
+        .side-nav a:hover {
+            color: #fff;
+        }
+
+#main-content {
+    transition: 0.9s;
+    overflow: hidden;
+}
+
+@media(max-width: 568px) {
+    .navbar-list {
+        display: none;
+    }
+}
+
+@media(min-width: 568px) {
+    #openNav {
+        display: none;
+    }
+}
+
+
+/* ngProgress */
+/* Styling for the ngProgress itself */
+#ngProgress {
+    margin: 0;
+    padding: 0;
+    z-index: 99998;
+    background-color: green;
+    color: green;
+    box-shadow: 0 0 10px 0; /* Inherits the font color */
+    height: 2px;
+    opacity: 0;
+    /* Add CSS3 styles for transition smoothing */
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Styling for the ngProgress-container */
+#ngProgress-container {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+}

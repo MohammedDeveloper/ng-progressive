@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>ShoeWalk - Walk in!!! </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="http://victorbjelkholm.github.io/ngProgress/ngProgress.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
+</head>
+<body ng-controller="homectrl">
+    <nav class="navbar">
+        <a href="#" id="openNav" ng-click="openSlide()"><span class="fa fa-bars fa-3x"></span></a>
+        <ul class="navbar-list">
+            <li><a id="menu-1" ng-click="redirect($event)" data-id="1" data-href="index.html" class="selected redirect" href="#">Home</a></li>
+            <li><a id="menu-2" ng-click="redirect($event)" data-id="2" data-href="index.html" class="redirect" href="#">Gallery</a></li>
+            <li><a id="menu-3" ng-click="redirect($event)" data-id="3" data-href="index.html" class="redirect" href="#">Contact Us</a></li>
+            <li><a id="menu-4" ng-click="redirect($event)" data-id="4" data-href="index.html" class="redirect" href="#">Feedback</a></li>
+        </ul>
+    </nav>
+    <div id="side-nav" class="side-nav">
+        <a id="closeNav" ng-click="closeSlide()" href="#"><span class="fa fa-close"></span></a>
+        <a id="sidemenu-1" ng-click="redirect($event)" data-id="1" data-href="index.html" class="selected redirect" href="#">Home</a>
+        <a id="sidemenu-2" ng-click="redirect($event)" data-id="2" data-href="index.html" class="redirect" href="#">Gallery</a>
+        <a id="sidemenu-3" ng-click="redirect($event)" data-id="3" data-href="index.html" class="redirect" href="#">Contact Us</a>
+        <a id="sidemenu-4" ng-click="redirect($event)" data-id="4" data-href="index.html" class="redirect" href="#">Feedback</a>
+    </div>
+    <div id="main-content">
+        <div class="pimg1">
+            <div class="ptext">
+                <span class="border">ShoeWalk</span>
+            </div>
+        </div>
+        <section class="section blockquote section-light">
+            <blockquote class="blockquote">
+                <h2 class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h2>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+        </section>
+        <div class="pimg2">
+            <div class="ptext2">
+                <span class="border">Walk! Walk! Walk!</span>
+            </div>
+        </div>
+        <section class="section section-dark">
+            <blockquote class="blockquote">
+                <h2 class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h2>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+        </section>
+        <div class="pimg3">
+            <div class="ptext2">
+                <span class="border">Step Out!!!</span>
+            </div>
+        </div>
+        <section class="section section-light">
+            <blockquote class="blockquote">
+                <h2 class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h2>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+        </section>
+        <div class="pimg4">
+            <div class="ptext">
+                <span class="border">Hang Out!!! Partyyy!!!</span>
+            </div>
+        </div>
+        <section class="section section-dark">
+            <blockquote class="blockquote">
+                <h2 class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h2>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+        </section>
+        <div class="pimg1">
+            <div class="ptext3">
+                <span class="border">ShoeWalk - Walk in!!!</span>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footertext">
+                <span class="border"> https://github.com/MohammedDeveloper | All right(s) reserved </span>
+            </div>
+        </div>
+    </div>
+    <script src="http://victorbjelkholm.github.io/ngProgress/build/ngprogress.js"></script>
+    <script>
+
+        /// ng progress
+        var myApp = angular.module('myApp', ['ngProgress']);
+        myApp.controller("homectrl", ["$scope", "ngProgressFactory", "$timeout", function ($scope, ngProgressFactory, $timeout) {
+
+            /*** ngProgress - base set ***/
+            $scope.progressbar = ngProgressFactory.createInstance();
+            $scope.progressbar.setColor("#E91E63");
+            $scope.progressbar.setHeight("4px");
+
+            /// start and complete
+            $scope.progressbar.start();
+            $timeout($scope.progressbar.complete(), 4000);
+
+            /// redirect
+            $scope.redirect = function ($event) {
+
+                /// element Id
+                let elemId = $event.toElement.attributes["data-id"].nodeValue;
+                let elemHref = $event.toElement.attributes["data-href"].nodeValue;
+
+                /// loop them to remove...
+                document.getElementById("sidemenu-" + elemId).classList.add("selected");
+                document.getElementById("menu-" + elemId).classList.add("selected");
+                $scope.progressbar.start();
+                $timeout($scope.progressbar.complete(), 4000);
+                $scope.closeSlide();
+            };
+
+            /// events for slide
+            $scope.openSlide = function () {
+                document.getElementById("side-nav").style.width = "200px";
+                document.getElementById("main-content").style.marginLeft = "200px";
+            }
+
+            $scope.closeSlide = function () {
+                document.getElementById("side-nav").style.width = "0px";
+                document.getElementById("main-content").style.marginLeft = "0px";
+            }
+
+        }]);
+
+    </script>
+</body>
+</html>
